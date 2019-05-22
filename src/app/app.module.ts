@@ -15,6 +15,7 @@ import { ConfigService } from './config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie.service';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
+import { Movie } from './entities/movie';
 
 @NgModule({
   declarations: [

@@ -10,8 +10,6 @@ import { Movie } from '../entities/movie';
 })
 export class BrowseMoviesComponent implements OnInit {
 
-  movies: Movie[];
-
   constructor(private movieService: MovieService, private http: HttpClient) { }
 
   ngOnInit() {
@@ -19,8 +17,8 @@ export class BrowseMoviesComponent implements OnInit {
   
   getMovies() : void{
     this.movieService.getMovies()
-      .subscribe(movies => this.movies = movies);
-      console.log(this.movies);
+      .subscribe(movies => this.movieService.movies = movies);
+      console.log(this.movieService.movies);
   }
 
 }
