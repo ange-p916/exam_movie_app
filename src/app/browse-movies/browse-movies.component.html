@@ -1,6 +1,17 @@
 <p>
   browse-movies works!
 </p>
+
+
+<ul class="movies">
+    <li *ngFor="let movie of movies">
+      <p>{{movie.id}}</p>
+      <p>{{movie.title}}</p>
+    </li>
+  </ul>
+  
+  <button (click)="getMovies()">Click me</button>
+
 <table style="table-layout:fixed" bgcolor="#CCCCCC" width="600" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <th width="200" height="379" align="center" valign="top" scope="row">

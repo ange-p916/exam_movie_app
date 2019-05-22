@@ -10,6 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { UserPageComponent } from './user-page/user-page.component';
 import { BrowseMoviesComponent } from './browse-movies/browse-movies.component';
+import { ConfigComponent } from './config/config.component';
+import { ConfigService } from './config.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MovieService } from './movie.service';
+import { CreateMovieComponent } from './create-movie/create-movie.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +23,18 @@ import { BrowseMoviesComponent } from './browse-movies/browse-movies.component';
     LoginComponent,
     HomeComponent,
     UserPageComponent,
-    BrowseMoviesComponent
+    BrowseMoviesComponent,
+    ConfigComponent,
+    CreateMovieComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, ConfigService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,51 @@
+id: number;
+    title: string;
+    filmDirector: string;
+    releaseDate: string;
+
+<form [formGroup]="createMovieForm" (ngSubmit)="createMovie()">
+    <label>
+      Title:
+      <input type="text" formControlName="title">
+    </label>
+    <br>
+    <label>
+      Film Director:
+      <input type="text" formControlName="filmDirector">
+    </label>
+    <br>
+    <label>
+      Release Date:
+      <input type="text" formControlName="releaseDate">
+    </label>
+    <br>
+    <label>
+      Username:
+      <input id="username" type="text" class="form-control" formControlName="username" required>
+    </label>
+    <br>
+    <label>
+      Password:
+      <input id="password" type="text" formControlName="password" required>
+    </label>
+  
+    <div *ngIf="username.invalid && (username.dirty || username.touched)"
+    class="alert alert-danger">
+        <div *ngIf="username.errors.required">
+          Username is required.
+        </div>
+        
+    </div>
+  
+    <div *ngIf="password.invalid && (password.dirty ||password.touched)"
+    class="alert alert-danger">
+    <div *ngIf="password.errors.required">
+      Password is required.
+    </div>
+  </div>
+  
+    <br>
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </form>
+  
+  <router-outlet></router-outlet>
