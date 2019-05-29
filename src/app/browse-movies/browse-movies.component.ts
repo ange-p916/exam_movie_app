@@ -9,10 +9,14 @@ import { Movie } from '../entities/movie';
   styleUrls: ['./browse-movies.component.css']
 })
 export class BrowseMoviesComponent implements OnInit {
+  
+  movies: Movie[];
+  constructor(private movieService: MovieService) { }
 
-  constructor(private movieService: MovieService, private http: HttpClient) { }
+  
 
   ngOnInit() {
+    this.movies = this.movieService.movies;
   }
   
   getMovies() : void{

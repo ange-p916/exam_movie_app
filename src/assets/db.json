@@ -1,28 +1,16 @@
 {
   "movies": [
     {
-      "id": 1,
       "title": "Django Unchained",
-      "Film Director": "Quentin Tarantino",
-      "Release Date": "25 December 2012 (USA)"
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Interstellar",
-      "Film Director": "Christopher Nolan",
-      "Release Date": "7 November 2014 (USA)"
+      "title": "NOT NICE",
+      "id": 2
     },
     {
-      "id": 4,
-      "title": "beans",
-      "filmDirector": "anthony hopkins",
-      "releaseDate": "2004"
-    },
-    {
-      "id": 12,
-      "title": "beans",
-      "filmDirector": "anthony hopkins",
-      "releaseDate": "2004"
+      "title": "YES",
+      "id": 3
     }
   ],
   "images": [

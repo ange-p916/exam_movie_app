@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie.service';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
 import { Movie } from './entities/movie';
+import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
+import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { Movie } from './entities/movie';
     UserPageComponent,
     BrowseMoviesComponent,
     ConfigComponent,
-    CreateMovieComponent
+    CreateMovieComponent,
+    ManageMoviesComponent,
+    DeleteMovieComponent
   ],
   imports: [
     BrowserModule,

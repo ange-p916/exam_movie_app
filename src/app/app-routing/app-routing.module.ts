@@ -9,13 +9,20 @@ import {BrowseMoviesComponent} from '../browse-movies/browse-movies.component';
 import { UserPageComponent } from '../user-page/user-page.component';
 import { ConfigComponent } from '../config/config.component';
 import { CreateMovieComponent } from '../create-movie/create-movie.component';
+import { ManageMoviesComponent } from '../manage-movies/manage-movies.component';
+import { DeleteMovieComponent } from '../delete-movie/delete-movie.component';
 
 export const routerConfig : Routes = [
   {path: '', redirectTo: 'home/login', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, children: [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent}
-  ]},{path: 'create-movie', component: CreateMovieComponent},
+  ]},
+  //{path: 'manage-movies', component: ManageMoviesComponent, children: [{
+
+  //}]},
+  {path: 'create-movie', component: CreateMovieComponent},
+  {path: 'delete-movie', component: DeleteMovieComponent},
   /*{path:'admin',component: AdminComponent, children: [
     {path: 'create-movie', component: CreateMovieComponent},
     {path: 'edit-movie', component: EditMovieComponent},

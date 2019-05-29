@@ -16,7 +16,9 @@ const httpOptions = {
 })
 export class MovieService {
 
-  movies: Movie[];
+  movies = [
+    new Movie(1,'test-title','test-director', '1994-test-year')
+  ]
 
   moviesUrl= '//127.0.0.1:3000/movies';
 
@@ -28,6 +30,20 @@ export class MovieService {
   }
 
   addMovie(movie: Movie): Observable<Movie>{
-    return this.http.post<Movie>(this.moviesUrl,movie, httpOptions);
+    return this.http.post<Movie>(this.moviesUrl, JSON.stringify(movie), httpOptions);
+  }
+
+
+  editMovie(movie: Movie) : Observable<{}>
+  {
+    let url = `${this.moviesUrl}/${movie.id}`;
+    return this.http.put(url, JSON.stringify(movie), httpOptions);
+  }
+
+  deleteMovie(movie: Movie | number) : Observable<{}>
+  {
+    const id = typeof movie === 'number' ? movie : movie.id;
+    const url = `${this.moviesUrl}/${id}`;
+    return this.http.delete(url, httpOptions);
   }
 }
