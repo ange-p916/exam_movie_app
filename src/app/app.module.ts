@@ -23,6 +23,7 @@ import { Birthday2Component } from './birthday2/birthday2.component';
 import { ExponentialstrengthPipe } from './exponentialstrength.pipe';
 import { PowerboostcalculatorComponent } from './powerboostcalculator/powerboostcalculator.component';
 import { CanWatchMoviesPipe } from './can-watch-movies.pipe';
+import { MovieSearchPipe } from './movie-search.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CanWatchMoviesPipe } from './can-watch-movies.pipe';
     Birthday2Component,
     ExponentialstrengthPipe,
     PowerboostcalculatorComponent,
-    CanWatchMoviesPipe
+    CanWatchMoviesPipe,
+    MovieSearchPipe
   ],
   imports: [
     BrowserModule,

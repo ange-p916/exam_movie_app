@@ -11,3 +11,9 @@
       {{movie.releaseDate}}
   </div>
 </div>
+
+
+<input type="text" [(ngModel)]="searchText" placeholder="look up a movie"/>
+<div *ngFor="let movie of movies | movieSearch: searchText">
+  {{movie.title}}
+</div>
