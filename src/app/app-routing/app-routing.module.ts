@@ -11,9 +11,6 @@ import { ConfigComponent } from '../config/config.component';
 import { CreateMovieComponent } from '../create-movie/create-movie.component';
 import { ManageMoviesComponent } from '../manage-movies/manage-movies.component';
 import { DeleteMovieComponent } from '../delete-movie/delete-movie.component';
-import { BirthdayComponent } from '../birthday/birthday.component';
-import { Birthday2Component } from '../birthday2/birthday2.component';
-import { PowerboostcalculatorComponent } from '../powerboostcalculator/powerboostcalculator.component';
 
 export const routerConfig : Routes = [
   {path: '', redirectTo: 'home/login', pathMatch: 'full'},
@@ -33,12 +30,6 @@ export const routerConfig : Routes = [
   ]},*/
   {path: 'browse-movies', component: BrowseMoviesComponent},
   {path: 'config-test', component: ConfigComponent},
-  {path: 'birthday', component: BirthdayComponent},
-  {path: 'birthday2', component: Birthday2Component},
-  {path: 'powerboostcalculator', component: PowerboostcalculatorComponent}
-  //{path: 'user-page', component: UserPageComponent, children: [
-    //
-  //]}
   
 ]
 
