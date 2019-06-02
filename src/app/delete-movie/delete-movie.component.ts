@@ -16,18 +16,9 @@ export class DeleteMovieComponent implements OnInit {
   selectedMovie: Movie;
 
   constructor(private movieService: MovieService, private router: Router) {
-    this.reset()
    }
 
-  addMovie(name: string){
-    name = name.trim();
-    if(!name){return;}
-    let movie = {name, canWatch: this.canWatch};
-    this.movies.push(movie);
 
-  }
-
-  reset() {this.movies = this.movieService.movies.slice();}
 
   ngOnInit() {
     this.movies = this.movieService.movies;

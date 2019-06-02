@@ -18,11 +18,6 @@ import { CreateMovieComponent } from './create-movie/create-movie.component';
 import { Movie } from './entities/movie';
 import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
 import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
-import { BirthdayComponent } from './birthday/birthday.component';
-import { Birthday2Component } from './birthday2/birthday2.component';
-import { ExponentialstrengthPipe } from './exponentialstrength.pipe';
-import { PowerboostcalculatorComponent } from './powerboostcalculator/powerboostcalculator.component';
-import { CanWatchMoviesPipe } from './can-watch-movies.pipe';
 import { MovieSearchPipe } from './movie-search.pipe';
 
 @NgModule({
@@ -37,11 +32,6 @@ import { MovieSearchPipe } from './movie-search.pipe';
     CreateMovieComponent,
     ManageMoviesComponent,
     DeleteMovieComponent,
-    BirthdayComponent,
-    Birthday2Component,
-    ExponentialstrengthPipe,
-    PowerboostcalculatorComponent,
-    CanWatchMoviesPipe,
     MovieSearchPipe
   ],
   imports: [
