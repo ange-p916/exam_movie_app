@@ -17,7 +17,7 @@ const httpOptions = {
 export class MovieService {
 
   movies = [
-    new Movie(1,'test-title','test-director', '1994-test-year')
+    new Movie(1,'test-title','test-director', '1994-test-year', true)
   ]
 
   moviesUrl= '//127.0.0.1:3000/movies';

@@ -25,3 +25,13 @@
 </div>
 
 <button (click)="getMovies()">Fetch</button>
+
+<br>
+New Movie
+  <input type="text" #box
+      (keyup.enter)="addMovie(box.value); box.value=''"
+      placeholder="movie name">
+      <button (click)="reset()">Reset</button>
+      <div *ngFor="let movie of (movies | canWatchMovies)">
+        {{movie.name}}
+      </div>

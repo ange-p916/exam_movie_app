@@ -20,7 +20,7 @@ export class CreateMovieComponent implements OnInit {
     releaseDate: ['']
   });
 
-  newMovie: Movie = {id: 12, title: "beans", filmDirector: "anthony hopkins", releaseDate: "2004" };
+  newMovie: Movie = {id: 12, title: "beans", filmDirector: "anthony hopkins", releaseDate: "2004", canWatch: true };
   //newMovie: Movie = {id: 1, title: JSON.stringify(this.createMovieForm.get('title')),
    //filmDirector: JSON.stringify(this.createMovieForm.get['filmDirector']),
    //releaseDate: JSON.stringify(this.createMovieForm.get['releaseDate'])};
