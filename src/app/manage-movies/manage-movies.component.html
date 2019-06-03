@@ -12,9 +12,15 @@
   <h2>{{selectedMovie.title | uppercase}} Details</h2>
   <div><span>id: </span>{{selectedMovie.id}}</div>
   <div>
-    <label>name:
+    <label>title:
       <input [(ngModel)]="selectedMovie.title" placeholder="title"/>
-    </label>
+    </label> <br>
+    <label>Film Director:
+      <input [(ngModel)]="selectedMovie.filmDirector" placeholder="director"/>
+    </label> <br>
+    <label>Release Date:
+      <input [(ngModel)]="selectedMovie.releaseDate" placeholder="release date"/>
+    </label> <br>
     <button class="delete" title="delete movie"
       (click)="deleteMovie()">Delete</button>
       

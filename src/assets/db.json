@@ -10,7 +10,17 @@
     },
     {
       "title": "YES",
-      "id": 3
+      "id": 3,
+      "filmDirector": "b-b-b-bill",
+      "releaseDate": "1984"
+    },
+    {
+      "title": "IT",
+      "id": 4
+    },
+    {
+      "title": "1984",
+      "id": 5
     }
   ],
   "images": [

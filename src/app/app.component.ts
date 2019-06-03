@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
+import { AuthguardService } from './authguard.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'ExamMovieSite';
 
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthguardService){}
 
   logout()
   {

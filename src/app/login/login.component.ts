@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthguardService } from '../authguard.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   @Input() username: string;
 
-  constructor(private fb: FormBuilder,private authservice: AuthService, private router: Router){
+  constructor(private fb: FormBuilder,private authservice: AuthguardService, private router: Router){
   }
 
   ngOnInit() {

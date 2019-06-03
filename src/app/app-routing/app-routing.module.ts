@@ -9,8 +9,8 @@ import {BrowseMoviesComponent} from '../browse-movies/browse-movies.component';
 import { UserPageComponent } from '../user-page/user-page.component';
 import { CreateMovieComponent } from '../create-movie/create-movie.component';
 import { ManageMoviesComponent } from '../manage-movies/manage-movies.component';
-import { DeleteMovieComponent } from '../delete-movie/delete-movie.component';
 import { AdminComponent } from '../admin/admin.component';
+import { AuthguardService } from '../authguard.service';
 
 export const routerConfig : Routes = [
   {path: '', redirectTo: 'home/login', pathMatch: 'full'},
@@ -18,7 +18,7 @@ export const routerConfig : Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent}
   ]},
-  {path:'admin',component: AdminComponent, children: [
+  {path:'admin',component: AdminComponent, canActivate: [AuthguardService], children: [
     {path: 'browse-movies', component: BrowseMoviesComponent},
     {path: 'create-movie', component: CreateMovieComponent},
     {path: 'manage-movies', component: ManageMoviesComponent}
