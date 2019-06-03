@@ -7,10 +7,10 @@ import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
 import {BrowseMoviesComponent} from '../browse-movies/browse-movies.component';
 import { UserPageComponent } from '../user-page/user-page.component';
-import { ConfigComponent } from '../config/config.component';
 import { CreateMovieComponent } from '../create-movie/create-movie.component';
 import { ManageMoviesComponent } from '../manage-movies/manage-movies.component';
 import { DeleteMovieComponent } from '../delete-movie/delete-movie.component';
+import { AdminComponent } from '../admin/admin.component';
 
 export const routerConfig : Routes = [
   {path: '', redirectTo: 'home/login', pathMatch: 'full'},
@@ -21,15 +21,14 @@ export const routerConfig : Routes = [
   //{path: 'manage-movies', component: ManageMoviesComponent, children: [{
 
   //}]},
-  {path: 'create-movie', component: CreateMovieComponent},
-  {path: 'delete-movie', component: DeleteMovieComponent},
-  /*{path:'admin',component: AdminComponent, children: [
+  //{path: 'create-movie', component: CreateMovieComponent},
+  //{path: 'delete-movie', component: DeleteMovieComponent},
+  {path:'admin',component: AdminComponent, children: [
+    {path: 'browse-movies', component: BrowseMoviesComponent},
     {path: 'create-movie', component: CreateMovieComponent},
-    {path: 'edit-movie', component: EditMovieComponent},
     {path: 'delete-movie', component: DeleteMovieComponent}
-  ]},*/
-  {path: 'browse-movies', component: BrowseMoviesComponent},
-  {path: 'config-test', component: ConfigComponent},
+  ]},
+  
   
 ]
 

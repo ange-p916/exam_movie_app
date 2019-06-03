@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { UserPageComponent } from './user-page/user-page.component';
 import { BrowseMoviesComponent } from './browse-movies/browse-movies.component';
-import { ConfigComponent } from './config/config.component';
 import { ConfigService } from './config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie.service';
@@ -19,6 +18,7 @@ import { Movie } from './entities/movie';
 import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
 import { DeleteMovieComponent } from './delete-movie/delete-movie.component';
 import { MovieSearchPipe } from './movie-search.pipe';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +28,11 @@ import { MovieSearchPipe } from './movie-search.pipe';
     HomeComponent,
     UserPageComponent,
     BrowseMoviesComponent,
-    ConfigComponent,
     CreateMovieComponent,
     ManageMoviesComponent,
     DeleteMovieComponent,
-    MovieSearchPipe
+    MovieSearchPipe,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
