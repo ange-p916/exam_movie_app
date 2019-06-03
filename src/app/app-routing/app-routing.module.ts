@@ -18,15 +18,10 @@ export const routerConfig : Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent}
   ]},
-  //{path: 'manage-movies', component: ManageMoviesComponent, children: [{
-
-  //}]},
-  //{path: 'create-movie', component: CreateMovieComponent},
-  //{path: 'delete-movie', component: DeleteMovieComponent},
   {path:'admin',component: AdminComponent, children: [
     {path: 'browse-movies', component: BrowseMoviesComponent},
     {path: 'create-movie', component: CreateMovieComponent},
-    {path: 'delete-movie', component: DeleteMovieComponent}
+    {path: 'manage-movies', component: ManageMoviesComponent}
   ]},
   
   
