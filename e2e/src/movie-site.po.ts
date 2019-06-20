@@ -68,6 +68,4 @@ export class MovieSite {
     return element(by.id('submit')).click();
   }
   //-----end create movie
-
-
 }
