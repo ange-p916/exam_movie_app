@@ -10,6 +10,29 @@ describe('workspace-project App', () => {
     movie_site = new MovieSite();
   });
 
+  it('it should create a movie with title="django", releaseDate="1994", filmDirector="tarantino', () => {
+    movie_site.navigateToCreateMovie();
+    movie_site.inputTitle();
+    movie_site.inputFilmDirector();
+    movie_site.inputReleaseDate();
+    movie_site.clickSubmitCreateMovie();
+  });
+
+  /*it('should type admin in input box', () => {
+    movie_site.navigateToLogin();
+    movie_site.loginWithAdmin();
+    expect(movie_site.getAdminName()).toEqual('admin');
+  });
+
+  it('should click log in',()=> {
+    movie_site.clickLogin();
+    expect(movie_site.verifyLogin()).toBe('Welcome admin');
+    //expect(component)
+  });
+
+ 
+
+
   it('should navigate to home and show WELCOME', () => {
     movie_site.navigateToHome();
     expect(movie_site.getHeadingText()).toEqual('WELCOME');
@@ -19,7 +42,7 @@ describe('workspace-project App', () => {
     movie_site.navigateToRegister();
     movie_site.enterUserName();
     movie_site.getUserName();
-  });
+  });*/
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
