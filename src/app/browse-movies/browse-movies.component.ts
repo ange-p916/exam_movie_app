@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { MovieService } from '../movie.service';
 import { Movie } from '../entities/movie';
 import { MovieSearchPipe } from '../movie-search.pipe';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-browse-movies',
@@ -11,13 +14,20 @@ import { MovieSearchPipe } from '../movie-search.pipe';
 })
 export class BrowseMoviesComponent implements OnInit {
   
-  movies: Movie[];
-  constructor(private movieService: MovieService) { }
+  movies$: Observable<Movie[]>;
+  selectedId: number;
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   
 
   ngOnInit() {
-    this.movies = this.movieService.movies;
+    this.movies$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        this.selectedId = +params.get('id');
+        return this.movieService.getMovies();
+      })
+    );
+    //this.movies = this.movieService.movies;
   }
   
   getMovies() : void{

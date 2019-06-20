@@ -1,19 +1,31 @@
-<p>
-  browse-movies works!
-</p>
-  <button (click)="getMovies()">Fetch</button>
+<button (click)="getMovies()">Fetch</button>
 
-<div class="wrapper">
-  <div *ngFor="let movie of movies">
-      {{movie.id}}
-      {{movie.title}}
-      {{movie.filmDirector}}
-      {{movie.releaseDate}}
+<a [routerLink]="['/movie', movie.id]">
+
+
+
+  <h2>HEROES</h2>
+  <ul class="heroes">
+    <li *ngFor="let movie of movies$ | async"
+        [class.selected]="movie.id === selectedId">
+      <a [routerLink]="['/movie', movie.id]">
+        <span class="badge">{{ movie.id }}</span>{{ movie.title }}
+      </a>
+    </li>
+  </ul>
+
+
+  <!--<div class="wrapper">
+      <div *ngFor="let movie of movies">
+        {{movie.id}}
+        {{movie.title}}
+        {{movie.filmDirector}}
+        {{movie.releaseDate}}
+      </div>
+    </div>-->
+
+
+  <input type="text" [(ngModel)]="searchText" placeholder="look up a movie" />
+  <div *ngFor="let movie of movies | movieSearch: searchText">
+    {{movie.title}}
   </div>
-</div>
-
-
-<input type="text" [(ngModel)]="searchText" placeholder="look up a movie"/>
-<div *ngFor="let movie of movies | movieSearch: searchText">
-  {{movie.title}}
-</div>

@@ -1,0 +1,14 @@
+<h2>MOVIES</h2>
+<div *ngIf="movie$ | async as movie">
+  <h3>"{{ movie.name }}"</h3>
+  <div>
+    <label>Id: </label>{{ movie.id }}
+  </div>
+  <div>
+    <label>Title: </label>
+    <input [(ngModel)]="movie.title" placeholder="title" />
+  </div>
+  <p>
+    <button (click)="gotoMovies(movie)">Back</button>
+  </p>
+</div>

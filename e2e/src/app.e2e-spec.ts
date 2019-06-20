@@ -1,16 +1,24 @@
-import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
+import { MovieSite } from './movie-site.po';
+import { element } from '@angular/core/src/render3';
 
 describe('workspace-project App', () => {
-  let page: AppPage;
+
+  let movie_site: MovieSite;
 
   beforeEach(() => {
-    page = new AppPage();
+    movie_site = new MovieSite();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to ExamMovieSite!');
+  it('should navigate to home and show WELCOME', () => {
+    movie_site.navigateToHome();
+    expect(movie_site.getHeadingText()).toEqual('WELCOME');
+  });
+
+  it('should enter a first name as batman', () => {
+    movie_site.navigateToRegister();
+    movie_site.enterUserName();
+    movie_site.getUserName();
   });
 
   afterEach(async () => {

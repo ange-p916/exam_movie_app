@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Movie } from './entities/movie';
+import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,6 +28,12 @@ export class MovieService {
   getMovies(): Observable<Movie[]>
   {
     return this.http.get<Movie[]>(this.moviesUrl);
+  }
+
+  getMovie(id: number | string){
+    return this.getMovies().pipe(
+      map((movies: Movie[]) => movies.find(movie => movie.id === +id))
+    )
   }
 
   addMovie(movie: Movie): Observable<Movie>{

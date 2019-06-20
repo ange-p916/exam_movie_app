@@ -1,7 +1,7 @@
 <ul class="topnav">
     <a routerLink="home">Home</a>
     <a *ngIf="auth.isLoggedIn" routerLink="/admin/create-movie">Create Movie</a>
-    <a *ngIf="auth.isLoggedIn" routerLink="/admin/browse-movies">Browse Movies</a>
+    <a *ngIf="auth.isLoggedIn" routerLink="/admin/movies">Browse Movies</a>
     <a *ngIf="auth.isLoggedIn" routerLink="/admin/manage-movies">Manage Movies</a>
     <a *ngIf="!auth.isLoggedIn" routerLink="/home/login">Login</a>
     <a routerLink="/home/register">Register</a>

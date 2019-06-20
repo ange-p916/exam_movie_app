@@ -1,7 +1,9 @@
+<h2>REGISTER</h2>
+
 <form [formGroup]="profileForm" (ngSubmit)="register()">
   <label>
     First Name:
-    <input type="text" formControlName="firstName">
+    <input type="text" formControlName="firstName" name="firstName" id="firstName">
   </label>
   <br>
   <label>

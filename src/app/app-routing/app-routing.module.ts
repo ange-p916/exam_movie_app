@@ -11,18 +11,24 @@ import { CreateMovieComponent } from '../create-movie/create-movie.component';
 import { ManageMoviesComponent } from '../manage-movies/manage-movies.component';
 import { AdminComponent } from '../admin/admin.component';
 import { AuthguardService } from '../authguard.service';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 
 export const routerConfig : Routes = [
-  {path: '', redirectTo: 'home/login', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, children: [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent}
   ]},
   {path:'admin',component: AdminComponent, canActivate: [AuthguardService], children: [
-    {path: 'browse-movies', component: BrowseMoviesComponent},
     {path: 'create-movie', component: CreateMovieComponent},
-    {path: 'manage-movies', component: ManageMoviesComponent}
-  ]},
+    { path: 'manage-movies', component: ManageMoviesComponent },
+    { path: 'movies', component: BrowseMoviesComponent},
+    {path:'movie/id', component: MovieDetailComponent}
+  ]
+  },
+
+  { path: '', redirectTo: 'home/login', pathMatch: 'full' },
+  {path:'**', component: PageNotFoundComponent}
   
   
 ]

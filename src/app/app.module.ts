@@ -18,6 +18,8 @@ import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
 import { MovieSearchPipe } from './movie-search.pipe';
 import { AdminComponent } from './admin/admin.component';
 import { AuthguardService } from './authguard.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AuthguardService } from './authguard.service';
     CreateMovieComponent,
     ManageMoviesComponent,
     MovieSearchPipe,
-    AdminComponent
+    AdminComponent,
+    PageNotFoundComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
