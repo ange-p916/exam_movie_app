@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { BrowseMoviesComponent } from './browse-movies/browse-movies.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie.service';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
@@ -25,7 +24,6 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    BrowseMoviesComponent,
     CreateMovieComponent,
     ManageMoviesComponent,
     MovieSearchPipe,

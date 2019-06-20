@@ -5,7 +5,6 @@ import {RegisterComponent} from '../register/register.component'
 import { Routes, RouterModule} from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../home/home.component';
-import {BrowseMoviesComponent} from '../browse-movies/browse-movies.component';
 import { CreateMovieComponent } from '../create-movie/create-movie.component';
 import { ManageMoviesComponent } from '../manage-movies/manage-movies.component';
 import { AdminComponent } from '../admin/admin.component';
@@ -21,7 +20,6 @@ export const routerConfig : Routes = [
   {path:'admin',component: AdminComponent, canActivate: [AuthguardService], children: [
     {path: 'create-movie', component: CreateMovieComponent},
     { path: 'manage-movies', component: ManageMoviesComponent },
-    { path: 'movies', component: BrowseMoviesComponent},
     {path:'movie/id', component: MovieDetailComponent}
   ]
   },

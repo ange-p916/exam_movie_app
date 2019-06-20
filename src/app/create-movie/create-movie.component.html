@@ -8,13 +8,13 @@
 
     <label>
       Film Director:
-      <input type="text" formControlName="filmDirector">
+      <input #filmDirector>
     </label>
     <br>
 
     <label>
       Release Date:
-      <input type="text" formControlName="releaseDate">
+      <input #releaseDate>
     </label>
     <br>
   <!--
@@ -27,7 +27,7 @@
     </div>
   -->
     <br>
-    <button (click)="createMovie(title.value); title.value=''">Create</button>
+    <button (click)="createMovie(title.value, filmDirector.value, releaseDate.value ); title.value=''">Create</button>
    <!-- <button type="submit" [disabled]="!createMovieForm.valid">Submit</button> -->
   </form>
   

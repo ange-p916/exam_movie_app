@@ -20,7 +20,7 @@ export class CreateMovieComponent implements OnInit {
     releaseDate: ['']
   });
 
-  newMovie: Movie = {id: 12, title: "beans", filmDirector: "anthony hopkins", releaseDate: "2004", canWatch: true };
+  //newMovie: Movie = {id: 12, title: "beans", filmDirector: "anthony hopkins", releaseDate: "2004", canWatch: true };
   //newMovie: Movie = {id: 1, title: JSON.stringify(this.createMovieForm.get('title')),
    //filmDirector: JSON.stringify(this.createMovieForm.get['filmDirector']),
    //releaseDate: JSON.stringify(this.createMovieForm.get['releaseDate'])};
@@ -35,16 +35,18 @@ export class CreateMovieComponent implements OnInit {
     });
   }
 
-  createMovie(title: string) : void
+  createMovie(title: string, filmDirector: string, releaseDate : string) : void
   {
     title = title.trim();
+    filmDirector = filmDirector.trim();
+    releaseDate = releaseDate.trim();
+    console.log(title + ' ' + filmDirector + ' ' + releaseDate);
     if(!title) { return; }
-    this.movieService.addMovie({title} as Movie)
+    this.movieService.addMovie({ title, filmDirector, releaseDate } as Movie)
     .subscribe(movie => {
       this.movieService.movies.push(movie);
     })
-    this.router.navigate(['/browse-movies']);
-    //.subscribe(movie => this.movieService.movies.push(movie));
+    this.router.navigate(['admin/manage-movies']);
   }
 
   genId(movies: Movie[]): number {
