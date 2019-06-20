@@ -8,13 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MovieService } from './movie.service';
+import { MovieService } from './services/movie.service';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
-import { Movie } from './entities/movie';
 import { ManageMoviesComponent } from './manage-movies/manage-movies.component';
 import { MovieSearchPipe } from './movie-search.pipe';
 import { AdminComponent } from './admin/admin.component';
-import { AuthguardService } from './authguard.service';
+import { AuthguardService } from './services/authguard.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 

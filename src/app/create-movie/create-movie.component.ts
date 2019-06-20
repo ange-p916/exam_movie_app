@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { MovieService } from '../movie.service';
+import { MovieService } from '../services/movie.service';
 import { Movie } from '../entities/movie';
 import { Router } from '@angular/router';
 
@@ -40,7 +40,6 @@ export class CreateMovieComponent implements OnInit {
     title = title.trim();
     filmDirector = filmDirector.trim();
     releaseDate = releaseDate.trim();
-    console.log(title + ' ' + filmDirector + ' ' + releaseDate);
     if(!title) { return; }
     this.movieService.addMovie({ title, filmDirector, releaseDate } as Movie)
     .subscribe(movie => {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { Movie } from './entities/movie';
+import { Movie } from '../entities/movie';
 import { map } from 'rxjs/operators';
 
 const httpOptions = {
