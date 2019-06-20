@@ -7,9 +7,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { UserPageComponent } from './user-page/user-page.component';
 import { BrowseMoviesComponent } from './browse-movies/browse-movies.component';
-import { ConfigService } from './config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie.service';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
@@ -27,7 +25,6 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserPageComponent,
     BrowseMoviesComponent,
     CreateMovieComponent,
     ManageMoviesComponent,
@@ -43,7 +40,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthguardService, ConfigService, MovieService],
+  providers: [AuthguardService, MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

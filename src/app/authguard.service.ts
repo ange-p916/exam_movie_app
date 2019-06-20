@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthguardService {
 
-  public isLoggedIn: boolean;
+  public isLoggedIn: boolean = true;
 
   constructor(private router: Router) { }
 

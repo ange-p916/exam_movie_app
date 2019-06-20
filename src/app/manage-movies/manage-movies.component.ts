@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../entities/movie';
 import { MovieService } from '../movie.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage-movies',
@@ -12,15 +14,26 @@ export class ManageMoviesComponent implements OnInit {
 
   movies: any[] = [];
   selectedMovie: Movie;
-
-  constructor(private movieService: MovieService, private router: Router) {
-   }
+  movies$: Observable<Movie[]>;
+  selectedId: number;
 
 
 
   ngOnInit() {
+
     this.movies = this.movieService.movies;
+    this.movies$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        this.selectedId = +params.get('id');
+        return this.movieService.getMovies();
+      })
+    );
+    //this.movies = this.movieService.movies;
   }
+
+  
+  constructor(private movieService: MovieService, private router: Router, private route: ActivatedRoute) {
+   }
 
   editMovie(movie: Movie)
   {
@@ -43,8 +56,7 @@ export class ManageMoviesComponent implements OnInit {
     this.movieService.getMovies()
       .subscribe(movies => this.movieService.movies = movies);
       console.log(this.movieService.movies);
-      this.router.navigate(['/home']);
+    this.router.navigate(['admin/manage-movies']);
   }
-
 
 }

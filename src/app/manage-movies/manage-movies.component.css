@@ -68,3 +68,18 @@
     background-color: gray !important;
     color: white;
   }
+
+  .search{
+    position: absolute;
+    right: 50%;
+    top: 20%;
+  }
+
+.mheader {
+  position: center;
+}
+.fetch {
+  position: absolute;
+  right: 82%;
+  top: 10%;
+}
