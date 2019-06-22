@@ -34,29 +34,15 @@ export class ManageMoviesComponent implements OnInit {
     });
 
     this.movieActions.getMovies();
-
-    /*this.movies = this.movieService.movies;
-    this.movies$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        this.selectedId = +params.get('id');
-        return this.movieService.getMovies();
-      })
-    );*/
-    //this.movies = this.movieService.movies;
   }
-
-  
-  
 
   editMovie(movie: Movie)
   {
-    console.log(this.selectedMovie + " " + movie);
     this.movieService.editMovie(movie).subscribe();
   }
 
-  deleteMovie(id: number)
+  deleteMovie()
   {
-    console.log(this.selectedMovie);
     this.movieService.deleteMovie(this.selectedMovie.id).subscribe();
   }
 
@@ -68,7 +54,6 @@ export class ManageMoviesComponent implements OnInit {
   getMovies() : void{
     this.movieService.getMovies()
       .subscribe(movies => this.movieService.movies = movies);
-      console.log(this.movieService.movies);
     this.router.navigate(['admin/manage-movies']);
   }
 

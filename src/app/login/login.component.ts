@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthguardService } from '../services/authguard.service';
+import { MovieActions } from '../store/movie.actions';
+import { MovieState } from '../store/store';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,10 @@ import { AuthguardService } from '../services/authguard.service';
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-
+  val: boolean;
   @Input() username: string;
 
-  constructor(private fb: FormBuilder,private authservice: AuthguardService, private router: Router){
+  constructor(private fb: FormBuilder, private authservice: AuthguardService, private router: Router, private movieActions: MovieActions, private movieState: MovieState){
   }
 
   ngOnInit() {
@@ -30,14 +32,17 @@ export class LoginComponent implements OnInit {
   {
     if(name === 'admin')
     {
-      this.authservice.isLoggedIn = true;
+      this.val = true;
+      
     }
   }
 
   onSubmit()
   {
     this.checkUserCredentials(this.loginForm.controls['username'].value);
-    console.log(this.authservice.isLoggedIn);
+    this.authservice.logIn(this.val).subscribe(() => {
+      this.movieActions.setLoggedIn(true);
+    });
   }
 
 }

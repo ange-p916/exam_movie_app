@@ -1,4 +1,6 @@
 <div class="mheader">
+  <div *ngIf{{isLoading}} >Loading movies, please hold </div>
+
   <h2>My Movies</h2>
   <ul class="movies">
     <li *ngFor="let movie of movies"
@@ -9,26 +11,6 @@
   </ul>
 
 </div>
-
-
-<!--
-
-<a [routerLink]="['/movie', movie.id]">
-
-
-
-  <h2>HEROES</h2>
-  <ul class="heroes">
-    <li *ngFor="let movie of movies$ | async"
-        [class.selected]="movie.id === selectedId">
-      <a [routerLink]="['/movie', movie.id]">
-        <span class="badge">{{ movie.id }}</span>{{ movie.title }}
-      </a>
-    </li>
-  </ul>
-
- -->
-
 
 <div *ngIf="selectedMovie">
 

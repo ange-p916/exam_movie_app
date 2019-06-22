@@ -46,6 +46,21 @@ export class MovieActions {
     });
   }
 
+  deleteMovie(movie: Movie): void {
+    this.ngRedux.dispatch({
+      type: MovieActions.DELETE_MOVIE,
+      payload: movie
+    });
+  }
+
+  editMovie(movie: Movie): void {
+    this.ngRedux.dispatch({
+      type: MovieActions.UPDATE_MOVIE,
+      payload: movie
+    });
+    
+  }
+
   setLoggedIn(isLoggedIn: boolean): void {
     this.ngRedux.dispatch({
       type: MovieActions.LOG_IN,

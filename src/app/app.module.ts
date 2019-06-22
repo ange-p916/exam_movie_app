@@ -17,7 +17,7 @@ import { AuthguardService } from './services/authguard.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
-import { AppState, rootReducer } from './store/store';
+import { AppState, rootReducer, MovieState } from './store/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 
 @NgModule({
@@ -41,7 +41,7 @@ import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
     HttpClientModule,
     NgReduxModule, NgReduxRouterModule.forRoot()
   ],
-  providers: [AuthguardService, MovieService],
+  providers: [AuthguardService, MovieService, MovieState],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -11,20 +11,12 @@ import { MovieActions } from '../store/movie.actions';
   styleUrls: ['./create-movie.component.css']
 })
 export class CreateMovieComponent implements OnInit {
-
-  //title: string;
-  //film
-
+  
   createMovieForm = this.fb.group({
     title: [''],
     filmDirector: [''],
     releaseDate: ['']
   });
-
-  //newMovie: Movie = {id: 12, title: "beans", filmDirector: "anthony hopkins", releaseDate: "2004", canWatch: true };
-  //newMovie: Movie = {id: 1, title: JSON.stringify(this.createMovieForm.get('title')),
-   //filmDirector: JSON.stringify(this.createMovieForm.get['filmDirector']),
-   //releaseDate: JSON.stringify(this.createMovieForm.get['releaseDate'])};
 
   constructor(private fb: FormBuilder, private movieAPIService: MovieService, private router: Router, private movieActions: MovieActions) { }
 
@@ -45,13 +37,7 @@ export class CreateMovieComponent implements OnInit {
 
     this.movieAPIService.createMovie({ title, filmDirector, releaseDate } as Movie).subscribe(movie => {
         this.movieActions.createMovie(movie);
-        //this.movieAPIService.movies.push(movie);
     })
-    this.router.navigate(['admin/manage-movies']);
-  }
-
-  genId(movies: Movie[]): number {
-    return movies.length > 0 ? Math.max(...movies.map(movie => movie.id)) + 1 : 0;
   }
 
 }

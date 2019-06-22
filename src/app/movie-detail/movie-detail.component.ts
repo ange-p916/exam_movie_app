@@ -28,9 +28,6 @@ export class MovieDetailComponent implements OnInit {
 
   gotoMovies(movie: Movie) {
     let movieId = movie ? movie.id : null;
-    // Pass along the hero id if available
-    // so that the HeroList component can select that hero.
-    // Include a junk 'foo' property for fun.
     this.router.navigate(['/movies', { id: movieId, foo: 'foo' }])
   }
 }

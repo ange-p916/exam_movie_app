@@ -1,21 +1,6 @@
 {
   "movies": [
     {
-      "title": "Django Unchained",
-      "id": 1,
-      "filmDirector": "tarantino"
-    },
-    {
-      "title": "NOT NICE",
-      "id": 2
-    },
-    {
-      "title": "YES",
-      "id": 3,
-      "filmDirector": "b-b-b-bill",
-      "releaseDate": "1984"
-    },
-    {
       "title": "IT",
       "id": 4
     },
@@ -30,32 +15,16 @@
       "releaseDate": "111"
     },
     {
-      "title": "closet",
+      "title": "hehehe",
+      "filmDirector": "hehehe",
+      "releaseDate": "1111",
       "id": 7
     },
     {
-      "title": "hihi",
-      "filmDirector": "hihi",
-      "releaseDate": "hihi",
-      "id": 9
-    },
-    {
-      "title": "django",
-      "filmDirector": "tarantino",
-      "releaseDate": "1994",
-      "id": 10
-    },
-    {
-      "title": "forrest gump",
-      "filmDirector": "robert zemeckis",
-      "releaseDate": "1994",
-      "id": 11
-    },
-    {
-      "title": "forrest gump",
+      "title": "not gump",
       "filmDirector": "dunno man",
       "releaseDate": "1992",
-      "id": 12
+      "id": 8
     }
   ],
   "images": [
