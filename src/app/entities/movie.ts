@@ -3,7 +3,7 @@ export class Movie{
         public id : number,
         public title: string,
         public filmDirector: string,
-        public releaseDate: string,
-        public canWatch: boolean
+        public releaseDate: string
     ){}
 }
+
