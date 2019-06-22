@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../entities/movie';
 import { Router } from '@angular/router';
+import { MovieActions } from '../store/movie.actions';
 
 @Component({
   selector: 'app-create-movie',
@@ -25,7 +26,7 @@ export class CreateMovieComponent implements OnInit {
    //filmDirector: JSON.stringify(this.createMovieForm.get['filmDirector']),
    //releaseDate: JSON.stringify(this.createMovieForm.get['releaseDate'])};
 
-  constructor(private fb: FormBuilder, private movieService: MovieService, private router: Router) { }
+  constructor(private fb: FormBuilder, private movieAPIService: MovieService, private router: Router, private movieActions: MovieActions) { }
 
   ngOnInit() {
     this.createMovieForm = new FormGroup({
@@ -40,10 +41,11 @@ export class CreateMovieComponent implements OnInit {
     title = title.trim();
     filmDirector = filmDirector.trim();
     releaseDate = releaseDate.trim();
-    if(!title) { return; }
-    this.movieService.addMovie({ title, filmDirector, releaseDate } as Movie)
-    .subscribe(movie => {
-      this.movieService.movies.push(movie);
+    if (!title) { return; }
+
+    this.movieAPIService.createMovie({ title, filmDirector, releaseDate } as Movie).subscribe(movie => {
+        this.movieActions.createMovie(movie);
+        //this.movieAPIService.movies.push(movie);
     })
     this.router.navigate(['admin/manage-movies']);
   }

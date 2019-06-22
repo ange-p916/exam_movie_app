@@ -6,8 +6,7 @@ import { Movie } from '../entities/movie';
 
 @Injectable({ providedIn: 'root' })
 export class MovieActions {
-  constructor(
-    private ngRedux: NgRedux<AppState>, private movieService: MovieService) { }
+  constructor(private ngRedux: NgRedux<AppState>, private movieService: MovieService) { }
 
   static LOG_IN: string = 'LOG_IN';
   static CREATE_MOVIE: string = 'CREATE_QUIZ';
@@ -19,24 +18,26 @@ export class MovieActions {
   static GET_MOVIES_FAILED: string = 'GET_MOVIES_FAILED';
 
 
-  getQuizzes(): void {
+  getMovies(): void {
     this.ngRedux.dispatch({ type: MovieActions.GET_MOVIES_LOADING });
 
     // call the ws
-    this.movieService.getMovies().subscribe(movies => {
-      
-      this.ngRedux.dispatch({
-        type: MovieActions.GET_MOVIES_SUCCESS,
+        this.movieService.getMovies().subscribe(movies => {
+          
+          
+            this.ngRedux.dispatch({
+              type: MovieActions.GET_MOVIES_SUCCESS,
 
-        payload: movies.filter(movie => movie.id === 1)
-      })
-    }, error => {
-      this.ngRedux.dispatch({
-        type: MovieActions.GET_MOVIES_FAILED,
-        payload: error
-      })
-    });
-  }
+              payload: movies
+            })
+          }, error => {
+            this.ngRedux.dispatch({
+              type: MovieActions.GET_MOVIES_FAILED,
+              payload: error
+            })
+          });
+        
+      }
   
   createMovie(movie: Movie): void {
     this.ngRedux.dispatch({

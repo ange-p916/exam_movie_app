@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
   {
     this.checkUserCredentials(this.loginForm.controls['username'].value);
     console.log(this.authservice.isLoggedIn);
-    console.log(this.username);
   }
 
 }

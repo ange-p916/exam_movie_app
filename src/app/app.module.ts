@@ -16,6 +16,9 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthguardService } from './services/authguard.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { AppState, rootReducer } from './store/store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 
 @NgModule({
   declarations: [
@@ -35,9 +38,14 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgReduxModule, NgReduxRouterModule.forRoot()
   ],
   providers: [AuthguardService, MovieService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private ngRedux: NgRedux<AppState>, private ngReduxRouter: NgReduxRouter) {
+    this.ngRedux.configureStore(rootReducer, {}, []);
+  }
+}

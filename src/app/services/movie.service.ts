@@ -17,8 +17,9 @@ const httpOptions = {
 })
 export class MovieService {
 
+  //hardcoded for test
   movies = [
-    new Movie(1,'test-title','test-director', '1994-test-year', true)
+    new Movie(1,'test-title','test-director', '1994-test-year')
   ]
 
   moviesUrl= '//127.0.0.1:3000/movies';
@@ -36,7 +37,7 @@ export class MovieService {
     )
   }
 
-  addMovie(movie: Movie): Observable<Movie>{
+  createMovie(movie: Movie): Observable<Movie>{
     return this.http.post<Movie>(this.moviesUrl, JSON.stringify(movie), httpOptions);
   }
 

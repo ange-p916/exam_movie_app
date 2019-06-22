@@ -7,6 +7,7 @@ const INITIAL_STATE: MovieState = { isLoggedIn: false, movies: [], isLoading: fa
 
 export function movieReducer(state: MovieState = INITIAL_STATE, action: any) {
   switch (action.type) {
+
     case MovieActions.GET_MOVIES_LOADING:
       return tassign(state, { isLoading: true });
 

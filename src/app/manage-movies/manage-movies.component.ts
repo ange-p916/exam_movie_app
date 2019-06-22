@@ -4,6 +4,9 @@ import { MovieService } from '../services/movie.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { NgRedux } from '@angular-redux/store';
+import { AppState } from '../store/store';
+import { MovieActions } from '../store/movie.actions';
 
 @Component({
   selector: 'app-manage-movies',
@@ -16,24 +19,34 @@ export class ManageMoviesComponent implements OnInit {
   selectedMovie: Movie;
   movies$: Observable<Movie[]>;
   selectedId: number;
+  isLoading: boolean;
 
 
+  constructor(private movieService: MovieService, private router: Router, private route: ActivatedRoute,
+    private ngRedux: NgRedux<AppState>, private movieActions: MovieActions) {
+  }
 
   ngOnInit() {
 
-    this.movies = this.movieService.movies;
+    this.ngRedux.select(state => state.movies).subscribe(result => {
+      this.movies = result.movies;
+      this.isLoading = result.isLoading;
+    });
+
+    this.movieActions.getMovies();
+
+    /*this.movies = this.movieService.movies;
     this.movies$ = this.route.paramMap.pipe(
       switchMap(params => {
         this.selectedId = +params.get('id');
         return this.movieService.getMovies();
       })
-    );
+    );*/
     //this.movies = this.movieService.movies;
   }
 
   
-  constructor(private movieService: MovieService, private router: Router, private route: ActivatedRoute) {
-   }
+  
 
   editMovie(movie: Movie)
   {
