@@ -1,13 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\e2e",
     "\\e2e\\src",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\manage-movies",
-    "\\src\\app\\services"
+    "\\src\\app"
   ],
-  "SelectedNode": "\\e2e\\src\\app.e2e-spec.ts",
+  "SelectedNode": "\\src\\app\\store",
   "PreviewInSolutionExplorer": false
 }

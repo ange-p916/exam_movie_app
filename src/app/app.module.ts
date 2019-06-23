@@ -26,10 +26,10 @@ import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    CreateMovieComponent,
-    ManageMoviesComponent,
-    MovieSearchPipe,
     AdminComponent,
+    ManageMoviesComponent,
+    CreateMovieComponent,
+    MovieSearchPipe,
     PageNotFoundComponent,
     MovieDetailComponent
   ],

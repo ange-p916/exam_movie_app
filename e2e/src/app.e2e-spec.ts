@@ -1,6 +1,7 @@
 import { browser, logging } from 'protractor';
 import { MovieSite } from './movie-site.po';
 import { element } from '@angular/core/src/render3';
+import { Movie } from 'src/app/entities/movie';
 
 describe('workspace-project App', () => {
 
@@ -8,9 +9,13 @@ describe('workspace-project App', () => {
 
   beforeEach(() => {
     movie_site = new MovieSite();
+    
   });
 
-  /*it('should type admin in input box', () => {
+  /*
+
+  */
+  it('should type admin in input box', () => {
     movie_site.navigateToLogin();
     movie_site.loginWithAdmin();
     expect(movie_site.getAdminName()).toEqual('admin');
@@ -20,19 +25,28 @@ describe('workspace-project App', () => {
   it('should click log in', () => {
     movie_site.clickLogin();
     expect(movie_site.verifyLogin()).toBe('Welcome admin');
-    browser.sleep(1000);
+    browser.sleep(3000);
     //expect(component)
-  });*/
+  });
 
+  it('should search for django')
+  {
+    movie_site.navigateToManageMovies();
+    browser.sleep(1000);
+    movie_site.inputSearchBar();
+    expect(movie_site.getInputSearchText()).toEqual('django');
+  }
 
-  it('it should create a movie with title="django", releaseDate="1994", filmDirector="tarantino', () => {
+  //###CREATE MOVIE####
+  //
+  /*it('it should create a movie with title="django", releaseDate="1994", filmDirector="tarantino', () => {
     movie_site.navigateToCreateMovie();
     movie_site.inputTitle();
     movie_site.inputFilmDirector();
     movie_site.inputReleaseDate();
     movie_site.clickSubmitCreateMovie();
     browser.sleep(100);
-  });
+  });*/
 
   /*
 
@@ -41,6 +55,8 @@ describe('workspace-project App', () => {
     expect(movie_site.getHeadingText()).toEqual('WELCOME');
   });
 
+  //###REGISTER####
+  //
   it('should enter a first name as batman', () => {
     movie_site.navigateToRegister();
     movie_site.enterUserName();

@@ -32,17 +32,17 @@ export class LoginComponent implements OnInit {
   {
     if(name === 'admin')
     {
-      this.val = true;
-      
+      this.authservice.logIn().subscribe(() => {
+        this.movieActions.setLoggedIn(true);
+        console.log(this.authservice.isLoggedIn);
+      });
     }
   }
 
   onSubmit()
   {
     this.checkUserCredentials(this.loginForm.controls['username'].value);
-    this.authservice.logIn(this.val).subscribe(() => {
-      this.movieActions.setLoggedIn(true);
-    });
+    
   }
 
 }

@@ -33,7 +33,6 @@
             (click)="deleteMovie()">
       Delete
     </button>
-
     <button class="edit" title="edit movie"
             (click)="editMovie(selectedMovie)">
       Update
@@ -43,7 +42,7 @@
 </div>
 
 <div class="search">
-  <input type="text" [(ngModel)]="searchText" placeholder="look up a movie" />
+  <input id="search" type="text" [(ngModel)]="searchText" placeholder="look up a movie" />
   <div *ngFor="let movie of movies | movieSearch: searchText">
     {{movie.title}}
   </div>
@@ -51,3 +50,5 @@
 <div class="fetch">
   <button (click)="getMovies()">Fetch</button>
 </div>
+
+<router-outlet></router-outlet>

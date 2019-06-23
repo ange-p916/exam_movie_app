@@ -1,4 +1,5 @@
 import { browser, element, by, Key } from 'protractor';
+import { retry } from 'rxjs/operators';
 
 
 export class MovieSite {
@@ -43,13 +44,23 @@ export class MovieSite {
     return element(by.css('h2')).getText();
   }
 
-  navigateToDeleteMovie() {
-    return browser.get('manage-movies');
+  navigateToManageMovies() {
+    return browser.get('/admin/manage-movies');
   }
 
   navigateToCreateMovie() {
     return browser.get('/admin/create-movie');
   }
+
+  //-------search
+  inputSearchBar() {
+    return element(by.id('search')).sendKeys('django');
+  }
+
+  getInputSearchText() {
+    return element(by.id('search')).getAttribute('value');
+  }
+  //-------------
 
   //------ start create movie
   inputTitle() {

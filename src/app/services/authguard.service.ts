@@ -3,20 +3,28 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/ro
 import { Observable, of } from 'rxjs';
 import { MovieState } from '../store/store';
 import { MovieActions } from '../store/movie.actions';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthguardService {
+export class AuthguardService implements CanActivate{
+    path: ActivatedRouteSnapshot[];
+    route: ActivatedRouteSnapshot;
+  
 
-  isLoggedIn: boolean;
+    isLoggedIn: boolean;
 
   constructor(private router: Router, private movieActions: MovieActions, private movieState: MovieState) { }
 
   ngOnInit() {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | import("@angular/router").UrlTree | Observable<boolean | import("@angular/router").UrlTree> | Promise<boolean | import("@angular/router").UrlTree> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    return this.movieState.isLoggedIn;
+  }
+
+  /*canActivate() {
     if (this.movieState.isLoggedIn)
     {
         return true;
@@ -25,12 +33,14 @@ export class AuthguardService {
     {
         this.router.navigate(["home"]);
     }
-  }
+  }*/
 
-  logIn(val: boolean): Observable<any> {
+  logIn(): Observable<any> {
 
-    this.isLoggedIn = val;
-    return of(this.movieState.isLoggedIn = val);
+    this.isLoggedIn = true;
+    this.movieState.isLoggedIn = true;
+    console.log(this.isLoggedIn + ", " + this.movieState.isLoggedIn)
+    return of(true);
   }
 
 }

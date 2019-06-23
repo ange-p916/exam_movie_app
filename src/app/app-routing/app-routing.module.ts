@@ -17,14 +17,23 @@ export const routerConfig : Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent}
   ]},
-  {path:'admin',component: AdminComponent, canActivate: [AuthguardService], children: [
-    {path: 'create-movie', component: CreateMovieComponent},
-    { path: 'manage-movies', component: ManageMoviesComponent },
-    {path:'movie/id', component: MovieDetailComponent}
-  ]
+  {
+    path: 'admin', component: AdminComponent, canActivate: [AuthguardService], children: [
+      
+          {
+            path: 'create-movie', component: CreateMovieComponent
+          },
+          {
+            path: 'manage-movies', component: ManageMoviesComponent
+          },
+          {
+            path: 'movie/id', component: MovieDetailComponent
+          }
+        
+    ]
   },
 
-  { path: '', redirectTo: 'home/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:'**', component: PageNotFoundComponent}
   
   
