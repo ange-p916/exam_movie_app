@@ -15,11 +15,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MovieService {
-
+  movies= []
   //hardcoded for test
-  movies = [
+ /* movies = [
     new Movie(1,'test-title','test-director', '1994-test-year')
-  ]
+  ]*/
 
   moviesUrl= '//127.0.0.1:3000/movies';
 

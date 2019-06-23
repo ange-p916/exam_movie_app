@@ -1,12 +1,15 @@
 import { MovieActions } from './movie.actions';
 import { tassign } from 'tassign';
 //import { TempDataService } from './service/temp-data.service';
-import { MovieState } from './store';
+import { MovieState, InitMovieState } from './store';
 //let temp = new TempDataService();
 const INITIAL_STATE: MovieState = { isLoggedIn: false, movies: [], isLoading: false }
 
-export function movieReducer(state: MovieState = INITIAL_STATE, action: any) {
+export function movieReducer(state: MovieState = INITIAL_STATE, action: any, initstate: InitMovieState) {
   switch (action.type) {
+
+    case MovieActions.IS_CREATING_MOVIE:
+      return tassign(initstate, {isCreating: true})
 
     case MovieActions.GET_MOVIES_LOADING:
       return tassign(state, { isLoading: true });
@@ -19,6 +22,7 @@ export function movieReducer(state: MovieState = INITIAL_STATE, action: any) {
       return tassign(state, { isLoading: false });
 
     case MovieActions.CREATE_MOVIE:
+                                      //spread operator /- returns all elements of an array
       return tassign(state, { movies: [...state.movies, action.payload] });
 
 

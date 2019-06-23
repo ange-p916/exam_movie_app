@@ -1,9 +1,8 @@
-export class Movie{
-    constructor(
-        public id : number,
-        public title: string,
-        public filmDirector: string,
-        public releaseDate: string
-    ){}
+export interface Movie{
+      id : number,
+      title: string,
+      filmDirector: string,
+      releaseDate: string
+    
 }
 

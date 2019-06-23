@@ -8,6 +8,7 @@ import { Movie } from '../entities/movie';
 export class MovieActions {
   constructor(private ngRedux: NgRedux<AppState>, private movieService: MovieService) { }
 
+  static IS_CREATING_MOVIE: string = 'IS_CREATING_MOVIE';
   static LOG_IN: string = 'LOG_IN';
   static CREATE_MOVIE: string = 'CREATE_QUIZ';
   static UPDATE_MOVIE: string = 'UPDATE_QUIZ';
@@ -23,8 +24,6 @@ export class MovieActions {
 
     // call the ws
         this.movieService.getMovies().subscribe(movies => {
-          
-          
             this.ngRedux.dispatch({
               type: MovieActions.GET_MOVIES_SUCCESS,
 

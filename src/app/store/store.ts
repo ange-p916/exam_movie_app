@@ -8,6 +8,11 @@ export class MovieState {
   movies: Movie[];
   isLoading: boolean;
 }
+
+export class InitMovieState {
+  isCreating: boolean;
+}
+
 export class AppState {
   movies?: MovieState;
 }

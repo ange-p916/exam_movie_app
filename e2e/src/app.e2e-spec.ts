@@ -1,20 +1,20 @@
 import { browser, logging } from 'protractor';
 import { MovieSite } from './movie-site.po';
 import { element } from '@angular/core/src/render3';
-import { Movie } from 'src/app/entities/movie';
+import { MovieActions } from '../../src/app/store/movie.actions'
+import { movieReducer } from '../../src/app/store/movie.reducer';
+
 
 describe('workspace-project App', () => {
 
   let movie_site: MovieSite;
-
   beforeEach(() => {
     movie_site = new MovieSite();
-    
   });
 
   /*
 
-  */
+  
   it('should type admin in input box', () => {
     movie_site.navigateToLogin();
     movie_site.loginWithAdmin();
@@ -27,15 +27,28 @@ describe('workspace-project App', () => {
     expect(movie_site.verifyLogin()).toBe('Welcome admin');
     browser.sleep(3000);
     //expect(component)
-  });
+  });*/
 
-  it('should search for django', () => {
+  var deepFreeze = require('deep-freeze');
+  
+
+  describe('actions', () => {
+    it('should create an action that creates a new movie', () => {
+      let state = {isCreating: undefined };
+      deepFreeze(state);
+      expect(movieReducer(undefined, { type: MovieActions.IS_CREATING_MOVIE, payload: true }, state)).toEqual({ isCreating: true });
+    });
+  })
+
+  //####PIPE UNIT TEST#####
+
+  /*it('should search for django', () => {
     movie_site.navigateToManageMovies();
     movie_site.inputSearchBar();
     expect(movie_site.getInputSearchText()).toEqual('forrest');
 
     browser.sleep(1000);
-  });
+  });*/
   
   
   //###CREATE MOVIE####
