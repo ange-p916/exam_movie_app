@@ -19,7 +19,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { AppState, rootReducer, MovieState } from './store/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
-
+import { createLogger } from 'redux-logger';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +46,6 @@ import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 })
 export class AppModule {
   constructor(private ngRedux: NgRedux<AppState>, private ngReduxRouter: NgReduxRouter) {
-    this.ngRedux.configureStore(rootReducer, {}, []);
+    this.ngRedux.configureStore(rootReducer, {}, [createLogger()]);
   }
 }

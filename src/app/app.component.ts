@@ -15,5 +15,8 @@ export class AppComponent {
 
   constructor(private movieState: MovieState, private auth: AuthguardService) {
     this.isLoggedIn = this.auth.isLoggedIn();
+    this.auth.isLoggedIn().subscribe(() => {
+      movieState.isLoggedIn = true;
+    })
   }
 }

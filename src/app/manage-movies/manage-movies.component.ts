@@ -31,6 +31,7 @@ export class ManageMoviesComponent implements OnInit {
     this.ngRedux.select(state => state.movies).subscribe(result => {
       this.movies = result.movies;
       this.isLoading = result.isLoading;
+      
     });
 
     this.movieActions.getMovies();
@@ -38,12 +39,23 @@ export class ManageMoviesComponent implements OnInit {
 
   editMovie(movie: Movie)
   {
-    this.movieService.editMovie(movie).subscribe();
+
+    this.movieService.editMovie(this.selectedMovie).subscribe(movie => {
+      this.ngRedux.dispatch({
+        type: MovieActions.UPDATE_MOVIE,
+        payload: movie
+      })
+    });
   }
 
   deleteMovie()
   {
-    this.movieService.deleteMovie(this.selectedMovie.id).subscribe();
+    this.movieService.deleteMovie(this.selectedMovie.id).subscribe(movie => {
+      this.ngRedux.dispatch({
+        type: MovieActions.DELETE_MOVIE,
+        payload: movie
+      })
+    }); 
   }
 
   onSelect(movie: Movie): void {
@@ -54,7 +66,10 @@ export class ManageMoviesComponent implements OnInit {
   getMovies() : void{
     this.movieService.getMovies()
       .subscribe(movies => this.movieService.movies = movies);
-    this.router.navigate(['admin/manage-movies']);
+  }
+
+  printdetails(movie: Movie) {
+    console.log(movie);
   }
 
 }

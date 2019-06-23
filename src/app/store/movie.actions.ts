@@ -10,9 +10,9 @@ export class MovieActions {
 
   static IS_CREATING_MOVIE: string = 'IS_CREATING_MOVIE';
   static LOG_IN: string = 'LOG_IN';
-  static CREATE_MOVIE: string = 'CREATE_QUIZ';
-  static UPDATE_MOVIE: string = 'UPDATE_QUIZ';
-  static DELETE_MOVIE: string = 'DELETE_QUIZ';
+  static CREATE_MOVIE: string = 'CREATE_MOVIE';
+  static UPDATE_MOVIE: string = 'UPDATE_MOVIE';
+  static DELETE_MOVIE: string = 'DELETE_MOVIE';
 
   static GET_MOVIES_LOADING: string = 'GET_MOVIES_LOADING';
   static GET_MOVIES_SUCCESS: string = 'GET_MOVIES_SUCCESS';
@@ -23,26 +23,30 @@ export class MovieActions {
     this.ngRedux.dispatch({ type: MovieActions.GET_MOVIES_LOADING });
 
     // call the ws
-        this.movieService.getMovies().subscribe(movies => {
-            this.ngRedux.dispatch({
-              type: MovieActions.GET_MOVIES_SUCCESS,
+    this.movieService.getMovies().subscribe(movies => {
+        this.ngRedux.dispatch({
+          type: MovieActions.GET_MOVIES_SUCCESS,
 
-              payload: movies
-            })
-          }, error => {
-            this.ngRedux.dispatch({
-              type: MovieActions.GET_MOVIES_FAILED,
-              payload: error
-            })
-          });
+          payload: movies
+        })
+      }, error => {
+        this.ngRedux.dispatch({
+          type: MovieActions.GET_MOVIES_FAILED,
+          payload: error
+        })
+      });
         
-      }
+  }
   
   createMovie(movie: Movie): void {
-    this.ngRedux.dispatch({
-      type: MovieActions.CREATE_MOVIE,
-      payload: movie
-    });
+
+    this.movieService.createMovie(movie).subscribe(movie => {
+      this.ngRedux.dispatch({
+        type: MovieActions.CREATE_MOVIE,
+        payload: movie
+      });
+    })
+    
   }
 
   deleteMovie(movie: Movie): void {

@@ -4,7 +4,8 @@ import { MovieService } from '../services/movie.service';
 import { Movie } from '../entities/movie';
 import { Router } from '@angular/router';
 import { MovieActions } from '../store/movie.actions';
-import { MovieState } from '../store/store';
+import { MovieState, AppState } from '../store/store';
+import { NgRedux } from '@angular-redux/store';
 
 @Component({
   selector: 'app-create-movie',
@@ -19,7 +20,8 @@ export class CreateMovieComponent implements OnInit {
     releaseDate: ['']
   });
 
-  constructor(private fb: FormBuilder, private movieAPIService: MovieService, private router: Router, private movieActions: MovieActions,private  movieState: MovieState) { }
+  constructor(private fb: FormBuilder, private movieService: MovieService, private router: Router,
+    private movieActions: MovieActions, private movieState: MovieState, private ngRedux: NgRedux<AppState>) { }
 
   ngOnInit() {
     this.createMovieForm = new FormGroup({
@@ -36,12 +38,12 @@ export class CreateMovieComponent implements OnInit {
     releaseDate = releaseDate.trim();
     if (!title) { return; }
 
-    this.movieAPIService.createMovie({ title, filmDirector, releaseDate } as Movie).subscribe(movie => {
-        this.movieActions.createMovie(movie);
-    })
-
-    console.log(this.movieState.isLoggedIn)
+    this.movieService.getMovies().subscribe(movie => {
+      this.ngRedux.dispatch({
+        type: MovieActions.CREATE_MOVIE,
+        payload: movie
+      })
+    });   
     this.router.navigate(['/home'])
-  }
-
+    }
 }
