@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { MovieState } from '../store/store';
 import { MovieActions } from '../store/movie.actions';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
@@ -12,16 +12,32 @@ export class AuthguardService implements CanActivate{
     path: ActivatedRouteSnapshot[];
     route: ActivatedRouteSnapshot;
   
+    isLoginSubject = new BehaviorSubject<boolean>(this.hasToken())
+    //isLoggedIn: Observable<boolean>;
 
-    isLoggedIn: boolean;
-
-  constructor(private router: Router, private movieActions: MovieActions, private movieState: MovieState) { }
+  constructor(private router: Router, private movieActions: MovieActions, private movieState: MovieState) {
+  }
 
   ngOnInit() {
   }
 
+  private hasToken(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.movieState.isLoggedIn;
+    if (this.isLoggedIn()) {
+      return true;
+    }
+    else {
+      return false;
+    }
+    
+  }
+
+  isLoggedIn(): Observable<boolean> {
+    return this.isLoginSubject.asObservable();
   }
 
   /*canActivate() {
@@ -35,12 +51,17 @@ export class AuthguardService implements CanActivate{
     }
   }*/
 
-  logIn(): Observable<any> {
+  login(): void {
 
-    this.isLoggedIn = true;
-    this.movieState.isLoggedIn = true;
-    console.log(this.isLoggedIn + ", " + this.movieState.isLoggedIn)
-    return of(true);
+    localStorage.setItem('token', 'admin');
+    console.log(localStorage.length)
+    this.isLoginSubject.next(true);
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    console.log(localStorage.length)
+    this.isLoginSubject.next(false);
   }
 
 }

@@ -29,14 +29,15 @@ describe('workspace-project App', () => {
     //expect(component)
   });
 
-  it('should search for django')
-  {
+  it('should search for django', () => {
     movie_site.navigateToManageMovies();
-    browser.sleep(1000);
     movie_site.inputSearchBar();
-    expect(movie_site.getInputSearchText()).toEqual('django');
-  }
+    expect(movie_site.getInputSearchText()).toEqual('forrest');
 
+    browser.sleep(1000);
+  });
+  
+  
   //###CREATE MOVIE####
   //
   /*it('it should create a movie with title="django", releaseDate="1994", filmDirector="tarantino', () => {

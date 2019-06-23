@@ -1,10 +1,13 @@
 <ul class="topnav">
   <a routerLink="home">Home</a>
-  <a *ngIf="auth.isLoggedIn" routerLink="admin/create-movie">Create Movie</a>
-  <a *ngIf="auth.isLoggedIn" routerLink="admin/manage-movies">Manage Movies</a>
-  <a *ngIf="!auth.isLoggedIn" routerLink="home/login">Login</a>
+
+  <a *ngIf="(isLoggedIn | async)" routerLink="admin/create-movie">Create Movie</a>
+  <a *ngIf="(isLoggedIn | async)" routerLink="admin/manage-movies">Manage Movies</a>
+
+  <a *ngIf="!(isLoggedIn | async)" routerLink="home/login">Login</a>
+
   <a routerLink="/home/register">Register</a>
-  <a *ngIf="auth.isLoggedIn" routerLink="home" (click)="logout()">Logout</a>
+  <a *ngIf="(isLoggedIn | async)" routerLink="home" (click)="auth.logout()">Logout</a>
 </ul> 
 
 <router-outlet></router-outlet>

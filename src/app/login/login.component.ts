@@ -14,9 +14,13 @@ export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
   val: boolean;
+
+  isLoggedIn: boolean;
+
   @Input() username: string;
 
   constructor(private fb: FormBuilder, private authservice: AuthguardService, private router: Router, private movieActions: MovieActions, private movieState: MovieState){
+    
   }
 
   ngOnInit() {
@@ -32,16 +36,15 @@ export class LoginComponent implements OnInit {
   {
     if(name === 'admin')
     {
-      this.authservice.logIn().subscribe(() => {
-        this.movieActions.setLoggedIn(true);
-        console.log(this.authservice.isLoggedIn);
-      });
+      this.authservice.login();
     }
   }
 
   onSubmit()
   {
-    this.checkUserCredentials(this.loginForm.controls['username'].value);
+    if (this.loginForm.controls['username'].value === 'admin') {
+      this.authservice.login();
+    }
     
   }
 

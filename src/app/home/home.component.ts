@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthguardService } from '../services/authguard.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,9 @@ import { AuthguardService } from '../services/authguard.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private auth: AuthguardService) { }
+  isLoggedIn: Observable<boolean>;
+  constructor(private auth: AuthguardService) {
+    this.isLoggedIn = auth.isLoggedIn();}
 
   ngOnInit() {
     

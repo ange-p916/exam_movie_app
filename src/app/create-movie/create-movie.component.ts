@@ -4,6 +4,7 @@ import { MovieService } from '../services/movie.service';
 import { Movie } from '../entities/movie';
 import { Router } from '@angular/router';
 import { MovieActions } from '../store/movie.actions';
+import { MovieState } from '../store/store';
 
 @Component({
   selector: 'app-create-movie',
@@ -18,7 +19,7 @@ export class CreateMovieComponent implements OnInit {
     releaseDate: ['']
   });
 
-  constructor(private fb: FormBuilder, private movieAPIService: MovieService, private router: Router, private movieActions: MovieActions) { }
+  constructor(private fb: FormBuilder, private movieAPIService: MovieService, private router: Router, private movieActions: MovieActions,private  movieState: MovieState) { }
 
   ngOnInit() {
     this.createMovieForm = new FormGroup({
@@ -38,6 +39,9 @@ export class CreateMovieComponent implements OnInit {
     this.movieAPIService.createMovie({ title, filmDirector, releaseDate } as Movie).subscribe(movie => {
         this.movieActions.createMovie(movie);
     })
+
+    console.log(this.movieState.isLoggedIn)
+    this.router.navigate(['/home'])
   }
 
 }

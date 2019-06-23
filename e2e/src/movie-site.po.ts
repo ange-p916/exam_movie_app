@@ -54,7 +54,7 @@ export class MovieSite {
 
   //-------search
   inputSearchBar() {
-    return element(by.id('search')).sendKeys('django');
+    return element(by.id('search')).sendKeys('forrest');
   }
 
   getInputSearchText() {

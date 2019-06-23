@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthguardService } from './services/authguard.service';
 import { MovieState } from './store/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,9 @@ import { MovieState } from './store/store';
 export class AppComponent {
   title = 'ExamMovieSite';
 
-  constructor(private movieState: MovieState, private auth: AuthguardService){}
+  isLoggedIn: Observable<boolean>;
 
-  logout()
-  {
-    this.movieState.isLoggedIn = false;
-    this.auth.isLoggedIn = false;
+  constructor(private movieState: MovieState, private auth: AuthguardService) {
+    this.isLoggedIn = this.auth.isLoggedIn();
   }
-
 }
