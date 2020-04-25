@@ -1,0 +1,4 @@
+{
+    "moviesUrl": "localhost:3000/movies/",
+    "textFile": "assets/db.json"
+}

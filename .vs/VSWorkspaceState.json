@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\e2e",
+    "\\e2e\\src",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\app-routing",
+    "\\src\\app\\home",
+    "\\src\\app\\login",
+    "\\src\\app\\manage-movies",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\e2e\\src\\movie-site.po.ts",
+  "PreviewInSolutionExplorer": false
+}

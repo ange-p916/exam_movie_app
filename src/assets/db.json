@@ -1,0 +1,60 @@
+{
+  "movies": [
+    {
+      "title": "IT",
+      "filmDirector": "Andy Muschietti",
+      "releaseDate": "2017",
+      "id": 4
+    },
+    {
+      "title": "The Dark Knight",
+      "filmDirector": "Christopher Nolan",
+      "releaseDate": "2008",
+      "id": 5
+    },
+    {
+      "title": "Forrest Gump",
+      "filmDirector": "Robert Zemeckis",
+      "releaseDate": "1994",
+      "id": 9
+    },
+    {
+      "title": "Battle Royale",
+      "filmDirector": "Kinji Fukasaku",
+      "releaseDate": "2000",
+      "id": 15
+    },
+    {
+      "title": "Reservoir Dogs",
+      "filmDirector": "Tarantino",
+      "releaseDate": "1992",
+      "id": 18
+    },
+    {
+      "title": "Robin Hood",
+      "filmDirector": "Otto Bathurst",
+      "releaseDate": "2018",
+      "id": 23
+    },
+    {
+      "title": "Joker",
+      "filmDirector": "Todd Philips",
+      "releaseDate": "2019",
+      "id": 25
+    }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "title": "django-unchained",
+      "image": "\\images\\django-unchained.png",
+      "link": ""
+    },
+    {
+      "id": 2,
+      "title": "interstellar",
+      "image": "\\images\\interstellar.png",
+      "link": ""
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+<h2>REGISTER</h2>
+
+<form [formGroup]="profileForm" (ngSubmit)="register()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName" name="firstName" id="firstName">
+  </label>
+  <br>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <br>
+  <label>
+    Email:
+    <input type="text" formControlName="email">
+  </label>
+  <br>
+  <label>
+    Username:
+    <input id="username" type="text" class="form-control" formControlName="username" required>
+  </label>
+  <br>
+  <label>
+    Password:
+    <input id="password" type="text" formControlName="password" required>
+  </label>
+
+  <div *ngIf="username.invalid && (username.dirty || username.touched)"
+  class="alert alert-danger">
+      <div *ngIf="username.errors.required">
+        Username is required.
+      </div>
+      
+  </div>
+
+  <div *ngIf="password.invalid && (password.dirty ||password.touched)"
+  class="alert alert-danger">
+  <div *ngIf="password.errors.required">
+    Password is required.
+  </div>
+</div>
+
+  <br>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+<router-outlet></router-outlet>

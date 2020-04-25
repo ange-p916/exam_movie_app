@@ -1,0 +1,56 @@
+<div class="mheader">
+  <div *ngIf{{isLoading}} >Loading movies, please hold </div>
+
+  <h2>My Movies</h2>
+  <ul class="movies">
+    <li *ngFor="let movie of movies"
+        [class.selected]="movie === selectedMovie"
+        (click)="onSelect(movie)">
+      <div> <span class="badge">{{movie.id}}</span> {{movie.title}}</div>
+    </li>
+  </ul>
+
+</div>
+
+<div *ngIf="selectedMovie">
+
+  <p (click)="printdetails(selectedMovie)">{{selectedMovie.title}}{{selectedMovie.filmDirector}}{{selectedMovie.releaseDate}}</p>
+
+  <h2>{{selectedMovie.title | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedMovie.id}}</div>
+  <div>
+    <label>
+      title:
+      <input [(ngModel)]="selectedMovie.title" placeholder="title" />
+    </label> <br>
+    <label>
+      Film Director:
+      <input [(ngModel)]="selectedMovie.filmDirector" placeholder="director" />
+    </label> <br>
+    <label>
+      Release Date:
+      <input [(ngModel)]="selectedMovie.releaseDate" placeholder="release date" />
+    </label> <br>
+    <button id="delete" class="delete" title="delete movie"
+            (click)="deleteMovie()">
+      Delete
+    </button>
+    <button class="edit" title="edit movie"
+            (click)="editMovie(selectedMovie)">
+      Update
+    </button>
+  </div>
+
+</div>
+
+<div class="search">
+  <input id="search" type="text" [(ngModel)]="searchText" placeholder="look up a movie" />
+  <div *ngFor="let movie of movies | movieSearch: searchText">
+    {{movie.title}}
+  </div>
+</div>
+<div class="fetch">
+  <button (click)="getMovies()">Fetch</button>
+</div>
+
+<router-outlet></router-outlet>
