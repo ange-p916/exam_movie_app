@@ -22,7 +22,7 @@ export class ManageMoviesComponent implements OnInit {
   isLoading: boolean;
 
 
-  constructor(private movieService: MovieService, private router: Router, private route: ActivatedRoute,
+  constructor(private movieService: MovieService, private router: Router, 
     private ngRedux: NgRedux<AppState>, private movieActions: MovieActions) {
   }
 

@@ -1,11 +1,12 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <ul class="topnav">
   <a routerLink="home">Home</a>
 
-  <a *ngIf="(isLoggedIn | async)" routerLink="admin/create-movie">Create Movie</a>
-  <a *ngIf="(isLoggedIn | async)" routerLink="admin/manage-movies">Manage Movies</a>
-  <a *ngIf="!(isLoggedIn | async)" routerLink="home/login">Login</a>
-  <a routerLink="/home/register">Register</a>
-  <a *ngIf="(isLoggedIn | async)" routerLink="home" (click)="auth.logout()">Logout</a>
+  <a *ngIf="(isLoggedIn | async)" class="w3-bar-item w3-button" routerLink="admin/create-movie">Create Movie</a>
+  <a class="w3-bar-item w3-button" routerLink="/home/manage-movies">All Movies</a>
+  <a *ngIf="!(isLoggedIn | async)" class="w3-bar-item w3-button w3-right" routerLink="home/login">Login</a>
+  <a class="w3-bar-item w3-button w3-right" routerLink="/home/register">Register</a>
+  <a *ngIf="(isLoggedIn | async)"  class="w3-bar-item w3-button w3-right" routerLink="home" (click)="auth.logout()">Logout</a>
 </ul> 
 
 <router-outlet></router-outlet>

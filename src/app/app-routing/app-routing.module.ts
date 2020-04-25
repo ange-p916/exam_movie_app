@@ -14,6 +14,7 @@ import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 
 export const routerConfig : Routes = [
   {path: 'home', component: HomeComponent, children: [
+    {path: 'manage-movies', component: ManageMoviesComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent}
   ]},
@@ -24,17 +25,15 @@ export const routerConfig : Routes = [
             path: 'create-movie', component: CreateMovieComponent
           },
           {
-            path: 'manage-movies', component: ManageMoviesComponent
-          },
-          {
             path: 'movie/id', component: MovieDetailComponent
           }
         
     ]
   },
-
+  
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path:'**', component: PageNotFoundComponent}
+  {path:'**', component: PageNotFoundComponent},
+  {path:'home', redirectTo: '/home/manage-movies'},
   
   
 ]
